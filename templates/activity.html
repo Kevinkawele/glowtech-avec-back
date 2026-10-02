@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+      <section class="page-hero page-hero--services"> 
+            <div class="container" data-reveal="up">
+                <p class="section-label">Nos activités</p>
+                <h1>Toutes les compétences techniques, au même endroit.</h1>
+                <p>
+                    De l’étude à la maintenance, nous intervenons avec une expertise
+                    complète et adaptée.
+                </p>
+            </div>
+      </section>
+      <section class="section container">
+        <div class="section-heading" data-reveal="up">
+          <p class="section-label">Nos domaines</p>
+          <h2>Des équipes dédiées à chaque métier.</h2>
+        </div>
+        <div class="activity-list" data-reveal-group>
+
+          {% for service in services %}
+            <article class="activity-detail" data-reveal="up">
+              <img
+                src="{{service.photo_service.url}}"
+                alt="Installation électrique" loading="lazy"/>
+              <div>
+                <span>{{service.id}}</span>
+                <h3>{{ service.designation }}</h3>
+                <p>
+                  {{ service.description }}
+                </p>
+                {% comment %} <ul>
+                  <li>Installations neuves et rénovation</li>
+                  <li>Tableaux et protections</li>
+                  <li>Diagnostic et maintenance</li>
+                </ul> {% endcomment %}
+                <a
+                  class="button button--outline"
+                  href="{% url 'devis_page' %}"
+                  >Demander ce service <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+            {% empty %}
+            <p style="text-align:center;">Aucun service pour le momemnt</p>
+          {% endfor %}
+
+          {% comment %} <article class="activity-detail" data-reveal="up">
+            <img
+              src="{% static 'images/services/about.jpg' %}"
+              alt="Travaux de BTP et construction" loading="lazy"/>
+            <div>
+              <span>01</span>
+              <h3>BTP et construction</h3>
+              <p>
+                Construction, maçonnerie, béton, fondations, structures,
+                rénovation et finitions pour des projets solides et durables.
+              </p>
+              <ul>
+                <li>Étude et préparation de chantier</li>
+                <li>Gros œuvre et second œuvre</li>
+                <li>Rénovation et finitions</li>
+              </ul>
+              <a
+                class="button button--outline"
+                href="demande-devis.html"
+                >Demander ce service <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+          <article class="activity-detail" data-reveal="up">
+            <img
+              src="{% static 'images/services/F5D7EAF7-3B98-4ECA-B83D-19BA134AF3D3.png' %}"
+              alt="Installation électrique" loading="lazy"/>
+            <div>
+              <span>02</span>
+              <h3>Électricité</h3>
+              <p>
+                Installations électriques, tableaux, câblage, éclairage,
+                protections et maintenance pour des installations fiables et
+                sûres.
+              </p>
+              <ul>
+                <li>Installations neuves et rénovation</li>
+                <li>Tableaux et protections</li>
+                <li>Diagnostic et maintenance</li>
+              </ul>
+              <a
+                class="button button--outline"
+                href="demande-devis.html"
+                >Demander ce service <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+          <article class="activity-detail" data-reveal="up">
+            <img
+              src="{% static 'images/services/1785301793778.jpg' %}"
+              alt="Installation solaire photovoltaïque" loading="lazy"/>
+            <div>
+              <span>03</span>
+              <h3>Énergie solaire photovoltaïque</h3>
+              <p>
+                Étude, dimensionnement, installation de panneaux, batteries,
+                onduleurs et maintenance de votre solution énergétique.
+              </p>
+              <ul>
+                <li>Étude de consommation</li>
+                <li>Pose photovoltaïque</li>
+                <li>Suivi et maintenance</li>
+              </ul>
+              <a
+                class="button button--outline"
+                href="demande-devis.html"
+                >Demander ce service <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+          <article class="activity-detail" data-reveal="up">
+            <img
+              src="{% static 'images/services/IMG-20260901-WA0054.jpg' %}" alt="Maintenance de climatisation" loading="lazy"/>
+            <div>
+              <span>04</span>
+              <h3>Climatisation</h3>
+              <p>
+                Installation, entretien, dépannage, diagnostic et maintenance
+                d’équipements de climatisation.
+              </p>
+              <ul>
+                <li>Installation et mise en service</li>
+                <li>Entretien préventif</li>
+                <li>Dépannage et diagnostic</li>
+              </ul>
+              <a
+                class="button button--outline"
+                href="demande-devis.html"
+                >Demander ce service <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article>
+          <article class="activity-detail" data-reveal="up">
+            <img src="{% static 'images/services/IMG-20260901-WA0059.jpg' %}" alt="Travaux de soudure" loading="lazy"/>
+            <div>
+              <span>05</span>
+              <h3>Ajustage et soudure</h3>
+              <p>
+                Fabrication métallique, soudage, découpage, assemblage, ajustage
+                et réparation de pièces métalliques.
+              </p>
+              <ul>
+                <li>Fabrication et assemblage</li>
+                <li>Soudage et découpage</li>
+                <li>Réparation et ajustage</li>
+              </ul>
+              <a class="button button--outline" href="demande-devis.html">
+                Demander ce service <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="activity-detail" data-reveal="up">
+            <img src="{% static 'images/services/IMG-20260901-WA0076.jpg' %}" alt="Maintenance électromécanique" loading="lazy"/>
+            <div>
+              <span>06</span>
+              <h3>Maintenance électromécanique</h3>
+              <p>
+                Diagnostic, maintenance préventive et corrective, réparation et
+                entretien des machines et équipements.
+              </p>
+              <ul>
+                <li>Diagnostic des équipements</li>
+                <li>Maintenance préventive</li>
+                <li>Réparation et remise en service</li>
+              </ul>
+              <a
+                class="button button--outline"
+                href="demande-devis.html"
+                >Demander ce service <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </article> {% endcomment %}
+        </div>
+      </section>
+      <section class="contact-banner contact-banner--parallax" data-parallax>
+        <div class="contact-banner__content container" data-reveal="up">
+          <p class="section-label section-label--light">
+            Votre besoin est unique
+          </p>
+          <h2>Obtenez une solution technique adaptée.</h2>
+          <a class="button button--light" href="demande-devis.html"
+            >Demander un devis <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </section>
+
+{% endblock  %}

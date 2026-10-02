@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+      <!----------------------- section hero ----------------------->
+      <section class="hero container" id="accueil" aria-labelledby="hero-title">
+        <div class="hero-copy" data-reveal="left">
+          <p class="eyebrow"><span aria-hidden="true"></span>Expertise technique</p>
+          <h1 id="hero-title">Des solutions techniques durables pour un <em>futur brillant.</em></h1>
+          <p>
+            GLOW TECH accompagne les particuliers, entreprises, organisations et institutions dans leurs projets de construction, d’électricité, d’énergie solaire et de maintenance électromécanique.
+          </p>
+          <div class="hero-actions">
+            <a class="button button--primary" href="{% url 'devis_page' %}">Décrire mon projet <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <a class="button button--outline" href="{% url 'contact_page' %}">Nous contacter <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="hero-collage" data-reveal="right" aria-label="Aperçu des domaines d'intervention de GLOW TECH">
+          <span class="orange-stroke stroke-top" aria-hidden="true"></span>
+          <span class="orange-stroke stroke-bottom" aria-hidden="true"></span>
+          <figure class="photo photo-solar">
+            <img src="{% static 'images/services/1785301793778.jpg' %}" alt="Technicien installant des panneaux solaires" fetchpriority="high">
+          </figure>
+          <figure class="photo photo-electric">
+            <img src="{% static 'images/services/F5D7EAF7-3B98-4ECA-B83D-19BA134AF3D3.png' %}" alt="Installation électrique industrielle">
+          </figure>
+          <figure class="photo photo-hvac">
+            <img src="{% static 'images/services/IMG-20260901-WA0054.jpg' %}" alt="Équipement de climatisation en maintenance">
+          </figure>
+          <figure class="photo photo-welding">
+            <img src="{% static 'images/services/about.jpg' %}" alt="Professionnel intervenant sur un chantier">
+          </figure>
+        </div>
+      </section>
+
+      <!----------------------- section service ----------------------->
+      <section class="about section container" id="a-propos" aria-labelledby="about-title">
+        <div class="about-layout">
+          <figure class="about-media" data-reveal="left">
+            <img src="{% static 'images/serv.JPG' %}" alt="Technicien GLOW TECH au travail" loading="lazy">
+          </figure>
+          <div class="about-content" data-reveal="right">
+            <p class="section-label">À propos de GLOW TECH</p>
+            <h2 id="about-title">Une expertise technique <span>au service de vos projets.</span></h2>
+            <p class="about-lead">
+              GLOW TECH est une entreprise technique multisectorielle intervenant dans le BTP, les installations électriques, l’énergie solaire photovoltaïque, la climatisation, l’ajustage-soudure et la maintenance électromécanique.
+            </p>
+            <p>Nous proposons des solutions techniques fiables, professionnelles et adaptées à chaque besoin.</p>
+
+            <div class="about-principles" data-reveal-group>
+              <article class="about-principle" data-reveal="up">
+                <span class="principle-number" aria-hidden="true">01</span>
+                <div>
+                  <h3>Notre mission</h3>
+                  <p>Fournir des solutions techniques de qualité dans les domaines du BTP, de l’électricité, de l’énergie, de la maintenance et des travaux spécialisés.</p>
+                </div>
+              </article>
+              <article class="about-principle" data-reveal="up">
+                <span class="principle-number" aria-hidden="true">02</span>
+                <div>
+                  <h3>Notre vision</h3>
+                  <p>Devenir une entreprise reconnue pour la qualité de ses réalisations, la compétence de son personnel et son innovation.</p>
+                </div>
+              </article>
+              <article class="about-principle" data-reveal="up">
+                <span class="principle-number" aria-hidden="true">03</span>
+                <div>
+                  <h3>Nos valeurs</h3>
+                  <p>Professionnalisme, intégrité, discipline, sécurité, qualité, responsabilité, innovation et esprit d’équipe.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!----------------------- section service ----------------------->
+      <section class="services section section--tint" id="activites" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-heading" data-reveal="up">
+            <p class="section-label">Nos activités</p>
+            <h2 id="services-title">Des solutions techniques adaptées à vos projets</h2>
+            <p>Une expertise complète pour accompagner vos projets, de la conception à la maintenance.</p>
+          </div>
+
+          <div class="services-grid" id="services-list" data-reveal-group>
+            {% for service in services %}
+            <article class="service-card" data-reveal="up">
+              <img class="service-card__image" src="{{ service.photo_service.url }}" alt="{{ service.designation }}" loading="lazy">
+              <div class="service-card__content">
+                <div class="service-card__meta"><i class="fas fa-hard-hat" aria-hidden="true"></i><span>{{Service.id}}</span></div>
+                <h3>{{ service.designation }}</h3>
+                <p>{{ service.description  | truncatechars:100}}.</p>
+                <a href="{% url 'devis_page' %}">Parler de mon projet <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+          <div class="section-actions section-actions--expand" data-reveal="up">
+            <button class="button button--outline" data-expand-cards data-expand-target="services-list" type="button" aria-expanded="false">Voir plus de services <i class="fas fa-arrow-down" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </section>
+
+      <!----------------------- section projets ----------------------->
+      <section class="projects section container" id="realisations" aria-labelledby="projects-title">
+        <div class="section-heading" data-reveal="up">
+          <p class="section-label">Nos réalisations</p>
+          <h2 id="projects-title">Découvrez quelques projets réalisés par GLOW TECH</h2>
+          <p>Des chantiers concrets, des solutions durables et un savoir-faire reconnu.</p>
+        </div>
+
+        <div class="project-grid" id="projects-list" data-reveal-group>
+          <article class="project-feature" data-reveal="left">
+            <img src="{{ real.photo_principale.url }}" alt="{{ real.titre }}" loading="lazy">
+            <div class="project-feature__overlay"></div>
+            <div class="project-feature__content">
+              <p class="project-category"><i class="fas fa-hard-hat" aria-hidden="true"></i>{{ real.service }}</p>
+              <h3>{{ real.titre }}</h3>
+              <p>{{ real.description }}</p>
+              <a class="button button--primary" href="{% url 'realisation_page' %}">En savoir plus <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          {% for real in realisations %}
+          <article class="project-card" data-reveal="up">
+            <img src="{{ real.photo_principale.url }}" alt="{{ real.titre }}" loading="lazy">
+            <div>
+              <p class="project-category"><i class="fas fa-bolt" aria-hidden="true"></i>{{ real.service }}</p>
+              <h3>{{ real.titre }}</h3>
+              <p>{{ real.description }}</p>
+              <a href="{% url 'realisation_page' %}">Voir le projet <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          {% empty %}
+          <p>Aucune realisation</p>
+          {% endfor %}
+        </div>
+        <div class="section-actions section-actions--expand" data-reveal="up">
+          <button class="button button--outline" data-expand-cards data-expand-target="projects-list" type="button" aria-expanded="false">Voir plus de réalisations <i class="fas fa-arrow-down" aria-hidden="true"></i></button>
+        </div>
+      </section>
+
+      <!--------------- section equipe --------------->
+      <section class="team section section--tint" id="equipe" aria-labelledby="team-title">
+        <div class="container">
+          <div class="section-heading" data-reveal="up">
+            <p class="section-label">Notre équipe</p>
+            <h2 id="team-title">Des compétences au service de vos projets</h2>
+            <p>Une équipe engagée, compétente et orientée vers la qualité.</p>
+          </div>
+
+          <div class="team-grid" data-reveal-group>
+            <article class="team-card" data-reveal="up">
+              <img src="{% static 'images/services/IMG-20260901-WA0059.jpg' %}" alt="Alumbongo Edia Thaddée" loading="lazy">
+              <div>
+                <p class="team-card__number">01</p>
+                <i class="fas fa-user team-card__icon" aria-hidden="true"></i>
+                <h3>Alumbongo Edia Thaddée</h3>
+                <p class="team-card__role">Directeur général</p>
+                <p class="team-card__tag">Électricité</p>
+              </div>
+            </article>
+            <article class="team-card" data-reveal="up">
+              <img src="{% static 'images/services/about.jpg' %}" alt="Équipe de construction GLOW TECH" loading="lazy">
+              <div>
+                <p class="team-card__number">02</p>
+                <i class="fas fa-hard-hat team-card__icon" aria-hidden="true"></i>
+                <h3>Équipe BTP</h3>
+                <p class="team-card__role">Construction et rénovation</p>
+                <p class="team-card__tag">BTP</p>
+              </div>
+            </article>
+            <article class="team-card" data-reveal="up">
+              <img src="{% static 'images/services/1785301793778.jpg' %}" alt="Équipe solaire GLOW TECH" loading="lazy">
+              <div>
+                <p class="team-card__number">03</p>
+                <i class="fas fa-solar-panel team-card__icon" aria-hidden="true"></i>
+                <h3>Équipe énergie</h3>
+                <p class="team-card__role">Solutions photovoltaïques</p>
+                <p class="team-card__tag">Solaire</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-------------------- section temoignage ------------------>
+      <section class="testimonials section container" id="temoignages" aria-labelledby="testimonials-title">
+        <div class="section-heading" data-reveal="up">
+          <p class="section-label">Témoignages clients</p>
+          <h2 id="testimonials-title">Ils nous font confiance</h2>
+          <p>Découvrez les retours de vos clients et partagez votre propre expérience avec GLOW TECH.</p>
+        </div>
+
+        <div class="testimonial-carousel" data-testimonial-slider data-reveal="up" aria-roledescription="carrousel" aria-label="Témoignages clients">
+          <div class="testimonial-track" data-testimonial-track>
+            {% for avis in avis_valides %}
+            <article class="testimonial-card" aria-roledescription="diapositive" aria-label="Témoignage 1 sur 3">
+              <div class="testimonial-card__stars" aria-label="Modèle d'avis cinq étoiles">
+                {% if avis.note == 5 %}
+                  <span aria-hidden="true">★★★★★</span><span class="visually-hidden">5 étoiles</span>
+                {% elif avis.note == 4 %}
+                  <span aria-hidden="true">★★★★</span><span class="visually-hidden">4 étoiles</span>
+                {% elif avis.note == 3 %}
+                  <span aria-hidden="true">★★★</span><span class="visually-hidden">3 étoiles</span>
+                {% elif avis.note == 2 %}
+                  <span aria-hidden="true">★★</span><span class="visually-hidden">2 étoiles</span>
+                {% elif avis.note == 1 %}
+                  <span aria-hidden="true">★</span><span class="visually-hidden">1 étoiles</span>
+                {% else %}
+                  <p>Pas d'étoile</p>
+                {% endif %}
+              </div>
+              <i class="fas fa-quote-left testimonial-card__quote" aria-hidden="true"></i>
+              <p>« {{avis.message | truncatechars:100}} »</p>
+              <footer>
+                <span class="testimonial-card__avatar" aria-hidden="true">{{avis.id}}</span>
+                <div><strong>{{avis.nom}}</strong><span>{{avis.organisation}}</span></div>
+              </footer>
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="testimonial-actions" data-reveal="up">
+          <div class="testimonial-controls" aria-label="Commandes du carrousel">
+            <button class="testimonial-control" data-testimonial-prev type="button" aria-label="Voir le témoignage précédent"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+            <p data-testimonial-status aria-live="polite">Témoignage 1 sur 3</p>
+            <button class="testimonial-control" data-testimonial-next type="button" aria-label="Voir le témoignage suivant"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+          </div>
+          <button class="button button--primary" data-open-review type="button">Laisser un avis <i class="fas fa-star" aria-hidden="true"></i></button>
+        </div>
+      </section>
+
+      
+      <dialog class="review-dialog" data-review-dialog aria-labelledby="review-title">
+        <div class="review-dialog__header">
+          <div>
+            <p class="section-label">Votre expérience</p>
+            <h2 id="review-title">Laisser un avis</h2>
+          </div>
+          <button class="dialog-close" data-close-review type="button" aria-label="Fermer la fenêtre"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <p class="review-dialog__intro">Merci de partager votre expérience. Votre avis sera relu avant publication.</p>
+
+        <form class="review-form" data-review-form method="POST" action="{% url 'creer_avis' %}">
+          {% csrf_token %}
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="review-name">Nom <span aria-hidden="true">*</span></label>
+              <input id="review-name" name="nom" type="text" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="review-organisation">Entreprise ou organisation</label>
+              <input id="review-organisation" name="organisation" type="text" autocomplete="organization">
+            </div>
+            <fieldset class="rating-field form-field--full">
+              <legend>Votre note <span aria-hidden="true">*</span></legend>
+              <div class="rating-options">
+                <label><input type="radio" name="note" value="5" required><span aria-hidden="true">★★★★★</span><span class="visually-hidden">5 étoiles</span></label>
+                <label><input type="radio" name="note" value="4"><span aria-hidden="true">★★★★</span><span class="visually-hidden">4 étoiles</span></label>
+                <label><input type="radio" name="note" value="3"><span aria-hidden="true">★★★</span><span class="visually-hidden">3 étoiles</span></label>
+                <label><input type="radio" name="note" value="2"><span aria-hidden="true">★★</span><span class="visually-hidden">2 étoiles</span></label>
+                <label><input type="radio" name="note" value="1"><span aria-hidden="true">★</span><span class="visually-hidden">1 étoile</span></label>
+              </div>
+            </fieldset>
+            <div class="form-field form-field--full">
+              <label for="review-message">Votre avis <span aria-hidden="true">*</span></label>
+              <textarea id="review-message" name="message" rows="5" required placeholder="Décrivez votre expérience avec GLOW TECH."></textarea>
+            </div>
+          </div>
+
+          <button class="button button--primary" type="submit">Envoyer mon avis <i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+          <p class="form-message" data-review-message role="status" aria-live="polite"></p>
+        </form>
+      </dialog>
+
+      <!----------------------- section contact baner ----------------------->
+      <section class="contact-banner contact-banner--parallax" id="contact" data-parallax aria-labelledby="contact-title">
+        <div class="contact-banner__content container" data-reveal="up">
+          <p class="section-label section-label--light">Un projet à réaliser&nbsp;?</p>
+          <h2 id="contact-title">Parlons de vos besoins techniques.</h2>
+          <p>Décrivez votre besoin : notre équipe prépare une solution adaptée et un devis personnalisé.</p>
+          <a class="button button--light" href="{% url 'devis_page' %}">Demander un devis <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </section>
+{% endblock  %}

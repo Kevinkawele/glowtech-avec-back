@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+        <section class="page-hero page-hero--about" aria-labelledby="page-title">
+          <div class="container" data-reveal="up">
+            <p class="section-label">À propos</p>
+            <h1 id="page-title">
+              L’expertise technique au cœur de chaque projet.
+            </h1>
+            <p>
+              GLOW TECH accompagne particuliers, entreprises, organisations et
+              institutions avec des solutions concrètes et durables.
+            </p>
+          </div>
+        </section>
+        <section class="section container">
+          <div class="story-layout">
+            <figure class="story-media" data-reveal="left">
+              <img src="{% static 'images/services/about.jpg' %}" alt="Technicien GLOW TECH sur un chantier" loading="lazy"/>
+            </figure>
+            <div class="story-copy" data-reveal="right">
+              <p class="section-label">Notre entreprise</p>
+              <h2>Des solutions conçues pour durer.</h2>
+              <p class="about-lead">
+                GLOW TECH est une entreprise technique multisectorielle
+                intervenant dans le BTP, l’électricité, l’énergie solaire, la
+                climatisation, l’ajustage-soudure et la maintenance
+                électromécanique.
+              </p>
+              <p>
+                Nous étudions chaque besoin avec rigueur pour proposer une réponse
+                fiable, sécurisée et adaptée au contexte de votre projet.
+              </p>
+              <a class="button button--primary" href="demande-devis.html">
+                Parler de mon projet <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </section>
+        <section class="section section--tint">
+          <div class="container">
+            <div class="section-heading" data-reveal="up">
+              <p class="section-label">Nos engagements</p>
+              <h2>Une méthode de travail claire et responsable.</h2>
+            </div>
+            <div class="commitment-grid" data-reveal-group>
+              <article class="commitment-card" data-reveal="up">
+                <i class="fas fa-bullseye"></i>
+                <h3>Notre mission</h3>
+                <p>
+                  Fournir des solutions techniques de qualité dans les domaines du
+                  BTP, de l’électricité, de l’énergie et de la maintenance.
+                </p>
+              </article>
+              <article class="commitment-card" data-reveal="up">
+                <i class="fas fa-eye"></i>
+                <h3>Notre vision</h3>
+                <p>
+                  Être reconnue pour la qualité de nos réalisations, la compétence
+                  de nos équipes et notre capacité d’innovation.
+                </p>
+              </article>
+              <article class="commitment-card" data-reveal="up">
+                <i class="fas fa-shield-halved"></i>
+                <h3>Nos valeurs</h3>
+                <p>
+                  Professionnalisme, intégrité, sécurité, qualité, responsabilité
+                  et esprit d’équipe guident nos interventions.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="section container">
+          <div class="section-heading" data-reveal="up">
+            <p class="section-label">Notre approche</p>
+            <h2>Un accompagnement à chaque étape.</h2>
+          </div>
+          <ol class="process-list" data-reveal-group>
+            <li data-reveal="up">
+              <span>01</span>
+              <div>
+                <h3>Écouter et analyser</h3>
+                <p>Nous comprenons vos besoins, contraintes et objectifs.</p>
+              </div>
+            </li>
+            <li data-reveal="up">
+              <span>02</span>
+              <div>
+                <h3>Proposer une solution</h3>
+                <p>
+                  Nous définissons une approche technique adaptée et réaliste.
+                </p>
+              </div>
+            </li>
+            <li data-reveal="up">
+              <span>03</span>
+              <div>
+                <h3>Réaliser avec rigueur</h3>
+                <p>
+                  Nos équipes interviennent avec méthode, sécurité et souci de
+                  qualité.
+                </p>
+              </div>
+            </li>
+            <li data-reveal="up">
+              <span>04</span>
+              <div>
+                <h3>Assurer le suivi</h3>
+                <p>
+                  Nous restons disponibles pour la maintenance de vos
+                  installations.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </section>
+        <section class="contact-banner contact-banner--parallax" data-parallax>
+          <div class="contact-banner__content container" data-reveal="up">
+            <p class="section-label section-label--light">
+              Construisons ensemble
+            </p>
+            <h2>Une expertise prête à soutenir votre ambition.</h2>
+            <a class="button button--light" href="demande-devis.html">
+              Demander un devis <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+{% endblock  %}

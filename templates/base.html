@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="GLOW TECH accompagne particuliers, entreprises et institutions dans leurs projets de BTP, électricité, énergie solaire et maintenance électromécanique.">
+      <!-- <meta name="theme-color" content="#f26b21"> -->
+      <title>GLOW TECH | Solutions techniques durables</title>
+      <link rel="icon"  href="{% static 'images/logo.png' %}" type="image/x-icon">
+
+      <!-- link cdn font awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="{% url 'home_page' %}" aria-label="GLOW TECH, retour à l'accueil">
+        <img class="brand-mark" src="{% static 'images/logo.png' %}" alt="Logo GLOW TECH" width="1129" height="748">
+      </a>
+
+      <nav class="desktop-nav" data-nav aria-label="Navigation principale">
+        {% comment %} <a class="active" href="{% url 'home_page' %}">Accueil</a> {% endcomment %}
+        <a href="{% url 'about_page' %}">À propos</a>
+        <a href="{% url 'activity_page' %}">Nos activités</a>
+        <a href="{% url 'realisation_page' %}">Nos réalisations</a>
+        <a href="{% url 'home_page' %}#equipe">Notre équipe</a>
+        <a href="{% url 'home_page' %}#temoignages">Témoignages</a>
+        <a href="{% url 'contact_page' %}">Contact</a>
+      </nav>
+
+      <a class="header-cta" href="{% url 'devis_page' %}">Demander un devis</a>
+      <button class="menu-toggle" data-menu-toggle type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main id="contenu">
+        {% block content %}
+        
+        {% endblock  %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-container container">
+        <div class="footer-about">
+          <a class="brand brand--footer" href="#accueil">
+            <img class="brand-mark" src="{% static 'images/logo.png' %}" alt="Logo GLOW TECH" width="1129" height="748">
+          </a>
+          <p>Des solutions de construction, d’énergie, d’électricité et de maintenance adaptées à vos projets.</p>
+        </div>
+        <div class="footer-links">
+          <h2>Navigation</h2>
+          <ul>
+            <li><a href="{% url 'about_page' %}">À propos</a></li>
+            <li><a href="{% url 'activity_page' %}">Nos activités</a></li>
+            <li><a href="{% url 'realisation_page' %}">Nos réalisations</a></li>
+            <li><a href="{% url 'contact_page' %}">Nous contacter</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h2>Contact</h2>
+          <p><i class="fas fa-file-signature" aria-hidden="true"></i><a href="demande-devis.html">Demander un devis personnalisé</a></p>
+          <p><i class="fas fa-envelope" aria-hidden="true"></i>glowtech@gmail.com</p>
+          <div class="social-links" aria-label="Réseaux sociaux GLOW TECH">
+            <span class="social-link" role="img" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></span>
+            {% comment %} <span class="social-link" role="img" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span> {% endcomment %}
+            {% comment %} <span class="social-link" role="img" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></span> {% endcomment %}
+            <span class="social-link" role="img" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <p>© 2026 GLOW TECH. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/animations.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+      <section class="contact-page-hero" aria-labelledby="quote-title">
+        <div class="container" data-reveal="up">
+          <p class="section-label">Demande de devis</p>
+          <h1 id="quote-title">
+            Décrivez votre projet, obtenez une estimation.
+          </h1>
+          <p>
+            Donnez-nous les informations nécessaires afin que notre équipe
+            puisse préparer une première proposition adaptée.
+          </p>
+        </div>
+      </section>
+      <section class="contact-section section container">
+        <div class="contact-layout">
+          <aside class="contact-summary" data-reveal="left">
+            <p class="section-label">Votre projet</p>
+            <h2>Un devis adapté à vos besoins.</h2>
+            <p>
+              Précisez le service recherché, le lieu et les principales
+              contraintes. Ces éléments facilitent l’étude de votre demande.
+            </p>
+            <ul class="contact-benefits">
+              <li>
+                <i class="fas fa-check"></i>Étude de votre besoin technique
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Réponse adaptée à vos contraintes
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Accompagnement de la conception à la
+                maintenance
+              </li>
+            </ul>
+            <div class="contact-details">
+              <p>
+                <i class="fas fa-envelope"></i
+                ><span>Ajoutez ici votre adresse e-mail professionnelle.</span>
+              </p>
+              <p>
+                <i class="fas fa-phone"></i
+                ><span>Ajoutez ici votre numéro de téléphone.</span>
+              </p>
+            </div>
+          </aside>
+          <form class="quote-form" method="post" data-quote-form data-reveal="right">
+            {% csrf_token %}
+            <div class="form-heading">
+              <p class="section-label">Informations du projet</p>
+              <p>Les champs marqués d’un <span>*</span> sont obligatoires.</p>
+            </div>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="quote-name">Nom et prénom <span>*</span></label>
+                <input id="quote-name" name="nom" type="text" autocomplete="name" required/>
+              </div>
+              <div class="form-field">
+                <label for="quote-company">Entreprise ou organisation</label>
+                <input id="quote-company" name="organisation" type="text" autocomplete="organization"/>
+              </div>
+              <div class="form-field">
+                <label for="quote-email">Adresse e-mail <span>*</span></label>
+                <input id="quote-email" name="email" type="email" autocomplete="email" required/>
+              </div>
+              <div class="form-field">
+                <label for="quote-phone">Téléphone <span>*</span></label>
+                <input id="quote-phone" name="telephone" type="tel" autocomplete="tel" required/>
+              </div>
+              <div class="form-field form-field--full">
+                <label for="quote-service">Service concerné <span>*</span></label>
+                <select id="quote-service" name="service" required>
+                  <option value="" selected disabled>
+                    Sélectionnez un domaine d’intervention
+                  </option>
+                  <option value="BTP et construction">BTP et construction</option>
+                  <option value="Électricité">Électricité</option>
+                  <option value="Énergie solaire photovoltaïque">Énergie solaire photovoltaïque</option>
+                  <option value="Climatisation">Climatisation</option>
+                  <option value="Ajustage et soudure">Ajustage et soudure</option>
+                  <option value="Maintenance électromécanique">Maintenance électromécanique</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="quote-location">Ville ou lieu du projet</label>
+                <input id="quote-location" name="localisation" type="text" />
+              </div>
+              {% comment %} <div class="form-field">
+                <label for="quote-budget">Budget estimatif</label>
+                <select id="quote-budget" name="budget">
+                  <option value="">Sélectionnez une fourchette</option>
+                  <option>À définir ensemble</option>
+                  <option>Moins de 500 000</option>
+                  <option>500 000 à 2 000 000</option>
+                  <option>Plus de 2 000 000</option>
+                </select>
+              </div> {% endcomment %}
+              <div class="form-field form-field--full">
+                <label for="quote-message">Décrivez votre projet <span>*</span></label>
+                  <textarea id="quote-message" name="message" rows="6" required placeholder="Objectif, travaux souhaités, délai envisagé, contraintes techniques…"></textarea>
+              </div>
+            </div>
+            <button class="button button--primary" type="submit">
+              Envoyer ma demande de devis <i class="fas fa-paper-plane"></i>
+            </button>
+            <p
+              class="form-message"
+              data-form-message
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </section>
+{% endblock %}

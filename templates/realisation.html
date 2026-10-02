@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+      <section class="page-hero page-hero--projects">
+        <div class="container" data-reveal="up">
+          <p class="section-label">Nos réalisations</p>
+          <h1>Des projets concrets, réalisés avec exigence.</h1>
+          <p>
+            Explorez une sélection de nos interventions. Cliquez sur une photo
+            pour voir la galerie du projet.
+          </p>
+        </div>
+      </section>
+      <section class="section container">
+        <div class="section-heading" data-reveal="up">
+          <p class="section-label">Galeries de projets</p>
+          <h2>Découvrez nos réalisations en images.</h2>
+        </div>
+        <div class="project-gallery-grid" data-reveal-group>
+          {% for reals in realisations %}
+          <article class="gallery-project" data-reveal="up">
+            <button class="gallery-project__cover" type="button" data-gallery-open data-gallery="construction" aria-label="Voir la galerie du projet Complexe résidentiel moderne">
+              <img src="{{reals.photo_principale.url}}" alt="{{reals.titre}}" loading="lazy"/>
+              <span><i class="fas fa-images"></i>Voir la galerie</span>
+            </button>
+            <div>
+              <p class="project-category">
+                <i class="fas fa-hard-hat"></i>{{reals.service}}
+              </p>
+              <h3>{{reals.titre}}</h3>
+              <p>
+                {{reals.description}}
+              </p>
+              <button class="text-button" type="button" data-gallery-open data-gallery="construction">
+                Voir les photos <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+          {% empty %}
+          <p style="text-align:center;">Aucune realisation</p>
+          {% endfor %}
+        </div>
+      </section>
+      <section class="contact-banner contact-banner--parallax" data-parallax>
+        <div class="contact-banner__content container" data-reveal="up">
+          <p class="section-label section-label--light">
+            Votre projet peut être le prochain
+          </p>
+          <h2>Parlons de votre future réalisation.</h2>
+          <a class="button button--light" href="demande-devis.html"
+            >Demander un devis <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </section>
+
+
+
+    <dialog class="gallery-dialog" data-gallery-dialog aria-labelledby="gallery-title">
+      <div class="gallery-dialog__top">
+        <p id="gallery-title" data-gallery-title>Galerie du projet</p>
+        <button class="dialog-close" type="button" data-gallery-close aria-label="Fermer la galerie">
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+      <div class="gallery-view">
+        <img data-gallery-image src="{% static 'images/services/IMG-20260901-WA0059.jpg' %}"alt=""/>
+          <button class="gallery-nav gallery-nav--previous" type="button" data-gallery-previous aria-label="Photo précédente">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="gallery-nav gallery-nav--next" type="button" data-gallery-next aria-label="Photo suivante">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+      </div>
+      <div class="gallery-dialog__bottom">
+        <p data-gallery-caption></p>
+        <p data-gallery-count></p>
+      </div>
+    </dialog>
+{% endblock %}
