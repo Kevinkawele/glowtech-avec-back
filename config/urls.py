@@ -15,12 +15,8 @@ urlpatterns = [
     path('realisation/', include('realisation.urls')),
     path('admin/', admin.site.urls),
 ] 
-
 if not settings.DEBUG:
     urlpatterns += [
-        re_path(r'^static/(?call:p.*)$', serve, {'document_root': settings.STATIC_ROOT}),
-        re_path(r'^media/(?call:p.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+        re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
+        re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     ]
-else:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

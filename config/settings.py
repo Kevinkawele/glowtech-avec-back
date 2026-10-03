@@ -104,13 +104,22 @@ USE_TZ = True
 
 
 
+import os
+
+# Fichiers statiques (CSS, JavaScript, Images du design)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Configuration pour les images et fichiers médias
+# Dossiers où vos applications stockent leurs fichiers statiques en local
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Fichiers médias (Images chargées via l'administration/les utilisateurs)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Configuration du stockage WhiteNoise pour la production
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
